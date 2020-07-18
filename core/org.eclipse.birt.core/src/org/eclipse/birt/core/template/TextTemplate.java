@@ -97,7 +97,7 @@ public class TextTemplate
 
 		public String getExpr( )
 		{
-			if ( IMAGE_TYPE_EXPR == getType( ) )
+			if (org.eclipse.birt.core.template.TextTemplate.ImageNode.IMAGE_TYPE_EXPR.equals(getType()) )
 			{
 				return expression;
 			}
@@ -117,7 +117,7 @@ public class TextTemplate
 
 		public String getImageName( )
 		{
-			if ( IMAGE_TYPE_EMBEDDED == imageType )
+			if (org.eclipse.birt.core.template.TextTemplate.ImageNode.IMAGE_TYPE_EMBEDDED.equals(imageType) )
 			{
 				return imageName;
 			}
@@ -166,4 +166,4 @@ public class TextTemplate
 			visitor.visitExpressionValue( this, value );
 		}
 	}
-}
+		}

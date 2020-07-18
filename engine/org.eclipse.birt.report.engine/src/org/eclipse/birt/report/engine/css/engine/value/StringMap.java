@@ -83,7 +83,7 @@ public class StringMap
 
 		for ( Entry e = table[index]; e != null; e = e.next )
 		{
-			if ( ( e.hash == hash ) && e.key == key )
+			if ( ( e.hash == hash ) && e.key.equals(key)  )
 			{
 				return e.value;
 			}
@@ -103,7 +103,7 @@ public class StringMap
 
 		for ( Entry e = table[index]; e != null; e = e.next )
 		{
-			if ( ( e.hash == hash ) && e.key == key )
+			if ( ( e.hash == hash ) && e.key.equals(key)  )
 			{
 				Object old = e.value;
 				e.value = value;

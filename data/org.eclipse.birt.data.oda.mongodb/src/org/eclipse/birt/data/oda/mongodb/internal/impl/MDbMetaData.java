@@ -443,8 +443,8 @@ public class MDbMetaData
         Set<Integer> nonStringNativeDataTypes = new HashSet<Integer>( nativeDataTypes.size() );
         for( Integer nativeDataType : nativeDataTypes )
         {
-            if( nativeDataType == NULL_NATIVE_DATA_TYPE || 
-                    nativeDataType == ARRAY_NATIVE_DATA_TYPE || nativeDataType == OBJECT_NATIVE_DATA_TYPE )
+            if( (nativeDataType.equals(org.eclipse.birt.data.oda.mongodb.internal.impl.MDbMetaData.NULL_NATIVE_DATA_TYPE) || nativeDataType.equals(org.eclipse.birt.data.oda.mongodb.internal.impl.MDbMetaData.ARRAY_NATIVE_DATA_TYPE)) 
+                     || nativeDataType.equals(org.eclipse.birt.data.oda.mongodb.internal.impl.MDbMetaData.OBJECT_NATIVE_DATA_TYPE)  )
                 continue;   // skip non-scalar data types
             int odaDataType = ManifestExplorer.getInstance( ).getDefaultOdaDataTypeCode( nativeDataType, 
                                 MongoDBDriver.ODA_DATA_SOURCE_ID, MDbQuery.ODA_DATA_SET_ID );
@@ -852,8 +852,8 @@ public class MDbMetaData
             Set<Integer> scalarNativeDataTypes = new HashSet<Integer>( nativeDataTypes.size() );
             for( Integer nativeDataType : nativeDataTypes )
             {
-                if( nativeDataType == ARRAY_NATIVE_DATA_TYPE ||
-                    nativeDataType == OBJECT_NATIVE_DATA_TYPE )
+                if( nativeDataType.equals(org.eclipse.birt.data.oda.mongodb.internal.impl.MDbMetaData.ARRAY_NATIVE_DATA_TYPE) || nativeDataType.equals(org.eclipse.birt.data.oda.mongodb.internal.impl.MDbMetaData.OBJECT_NATIVE_DATA_TYPE)
+                     )
                     continue;   // skip complex types
                 scalarNativeDataTypes.add( nativeDataType );
             }

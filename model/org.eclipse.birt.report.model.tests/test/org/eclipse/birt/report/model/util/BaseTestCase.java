@@ -662,7 +662,7 @@ public abstract class BaseTestCase extends TestCase
      */
     private boolean compareLine( String line1, String line2 )
     {
-        if ( line1 == line2 )
+        if (line1.equals(line2) )
         {
             return true;
         }

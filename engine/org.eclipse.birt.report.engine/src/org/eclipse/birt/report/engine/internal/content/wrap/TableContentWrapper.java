@@ -179,7 +179,7 @@ public class TableContentWrapper extends AbstractContentWrapper
 			{
 				hasHorzPageBreak = Boolean.valueOf( ContentUtil.hasHorzPageBreak( tableContent ) );
 			}
-			if ( Boolean.TRUE == hasHorzPageBreak )
+			if (java.lang.Boolean.TRUE.equals(hasHorzPageBreak) )
 			{
 				return null;
 			}

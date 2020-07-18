@@ -155,10 +155,22 @@ public class CrosstabBindingDialogHelper extends AbstractBindingDialogHelper
 	protected static final IChoice[] DATA_TYPE_CHOICES = DATA_TYPE_CHOICE_SET.getChoices( null );
 	protected String[] dataTypes = ChoiceSetFactory.getDisplayNamefromChoiceSet( DATA_TYPE_CHOICE_SET );
 
-	private Text txtName, txtFilter, txtExpression;
+	private org.eclipse.swt.widgets.Text txtName;
+
+	private org.eclipse.swt.widgets.Text txtFilter;
+
+	private org.eclipse.swt.widgets.Text txtExpression;
 	private Text dateText;
-	private Combo cmbType, cmbFunction, cmbAggOn, calculationType,
-			timeDimension;
+
+	private org.eclipse.swt.widgets.Combo cmbType;
+
+	private org.eclipse.swt.widgets.Combo cmbFunction;
+
+	private org.eclipse.swt.widgets.Combo cmbAggOn;
+
+	private org.eclipse.swt.widgets.Combo calculationType;
+
+	private org.eclipse.swt.widgets.Combo timeDimension;
 	private Composite paramsComposite;
 	private Group calculationComposite;
 
@@ -166,14 +178,28 @@ public class CrosstabBindingDialogHelper extends AbstractBindingDialogHelper
 	private Map<String, String> paramsValueMap = new HashMap<String, String>( );
 
 	private Composite composite;
-	private Text txtDisplayName, txtDisplayNameID;
+
+	private org.eclipse.swt.widgets.Text txtDisplayName;
+
+	private org.eclipse.swt.widgets.Text txtDisplayNameID;
 	private ComputedColumn newBinding;
 	private CLabel messageLine;
-	private Label lbName, lbDisplayNameID;
+
+	private org.eclipse.swt.widgets.Label lbName;
+
+	private org.eclipse.swt.widgets.Label lbDisplayNameID;
 	private Object container;
-	private Button btnDisplayNameID, btnRemoveDisplayNameID;
+
+	private org.eclipse.swt.widgets.Button btnDisplayNameID;
+
+	private org.eclipse.swt.widgets.Button btnRemoveDisplayNameID;
 	private List<ITimeFunction> times;
-	private Button todayButton, dateSelectionButton, recentButton;
+
+	private org.eclipse.swt.widgets.Button todayButton;
+
+	private org.eclipse.swt.widgets.Button dateSelectionButton;
+
+	private org.eclipse.swt.widgets.Button recentButton;
 	private Label dateFormatLbl;
 	private Map<String, Control> calculationParamsMap = new HashMap<String, Control>( );
 	private Map<String, String> calculationParamsValueMap = new HashMap<String, String>( );
@@ -2836,7 +2862,7 @@ public class CrosstabBindingDialogHelper extends AbstractBindingDialogHelper
 
 	private boolean strEquals( String left, String right )
 	{
-		if ( left == right )
+		if (left.equals(right) )
 			return true;
 		if ( left == null )
 			return "".equals( right ); //$NON-NLS-1$

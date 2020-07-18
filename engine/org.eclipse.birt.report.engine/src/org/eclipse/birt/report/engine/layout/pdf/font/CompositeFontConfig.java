@@ -104,7 +104,7 @@ public class CompositeFontConfig
 		{
 			String fontName = (String) iter.next( );
 			String fontCatalog = (String) fontCatalogs.get( fontName );
-			if ( catalog == fontCatalog ||
+			if ( catalog.equals(fontCatalog) ||
 					( catalog != null && catalog.equals( fontCatalog ) ) )
 
 			{
