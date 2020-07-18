@@ -22,9 +22,9 @@ public class DecimalGroupCalculator  extends GroupCalculator
 		super( intervalStart, intervalRange );
 		intervalRange = (intervalRange == 0 ? 1 : intervalRange);
 		this.intervalRange = intervalRange;
-//		If the  value '-1',grouping interval doesn't work for negative categories .So I change the value to '-Double.MAX_VALUE'.
+		//		If the  value '-1',grouping interval doesn't work for negative categories .So I change the value to '-Double.MAX_VALUE'.
 		if ( intervalStart == null )
-			doubleStartValue = new BigDecimal(-Double.MAX_VALUE );
+			doubleStartValue = BigDecimal.valueOf(-java.lang.Double.MAX_VALUE);
 		else
 			doubleStartValue = DataTypeUtil.toBigDecimal( intervalStart );
 	}
@@ -38,8 +38,8 @@ public class DecimalGroupCalculator  extends GroupCalculator
 	{
 		if ( value == null )
 		{
-//			If the  value '-1',grouping interval doesn't work for negative categories .So I change the value to '-Double.MAX_VALUE'.
-			return new BigDecimal( -Double.MAX_VALUE);
+			//			If the  value '-1',grouping interval doesn't work for negative categories .So I change the value to '-Double.MAX_VALUE'.
+			return BigDecimal.valueOf(-java.lang.Double.MAX_VALUE);
 		}
 
 		BigDecimal dValue = DataTypeUtil.toBigDecimal( value );

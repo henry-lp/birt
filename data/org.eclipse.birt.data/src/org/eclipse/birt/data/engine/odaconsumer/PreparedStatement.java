@@ -3386,7 +3386,7 @@ public class PreparedStatement extends ExceptionHandler
 			case Types.DECIMAL:
 			{
 				double d = paramValue.doubleValue();
-				BigDecimal bd = new BigDecimal( d );
+				BigDecimal bd = BigDecimal.valueOf(d);
 				setBigDecimal( paramName, paramIndex, bd );
 				return;
 			}
@@ -3544,7 +3544,7 @@ public class PreparedStatement extends ExceptionHandler
 			case Types.DOUBLE:
 			{
 				double d = paramValue.doubleValue();
-				BigDecimal doubleValue = new BigDecimal( d );
+				BigDecimal doubleValue = BigDecimal.valueOf(d);
 				// this could occur if there is a loss in precision or 
 				// if the BigDecimal value is outside the range of a double
 				if( ! paramValue.equals( doubleValue ) )
@@ -5369,4 +5369,4 @@ public class PreparedStatement extends ExceptionHandler
 		getProjectedColumns().checkColumnsNaming();
 	}
 
-}
+						}

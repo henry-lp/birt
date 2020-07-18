@@ -54,13 +54,7 @@ public class FileDocumentManagerTest {
 			new Date( ),
 			new Date( )
 	};
-	private BigDecimal[] bigDecimals = {
-			new BigDecimal( 0.00 ),
-			new BigDecimal( 1.11 ),
-			new BigDecimal( 2.22 ),
-			new BigDecimal( 3.33 ),
-			new BigDecimal( 4.44 ),
-			new BigDecimal( 5.55 )
+	private BigDecimal[] bigDecimals = new java.math.BigDecimal[]{ BigDecimal.valueOf(0.0), BigDecimal.valueOf(1.11), BigDecimal.valueOf(2.22), BigDecimal.valueOf(3.33), BigDecimal.valueOf(4.44), BigDecimal.valueOf(5.55)
 	};
 	private Bytes[] bytes = new Bytes[6];
 	{

@@ -87,7 +87,7 @@ public class FactoryPropertyHandleTest extends BaseTestCase
 		assertEquals( null, property.getColorValue( ) );
 		assertEquals( 0, property.getIntValue( ) );
 		assertEquals( 0, property.getFloatValue( ), 1 );
-		assertEquals( new BigDecimal( 0.0 ), property.getNumberValue( ) );
+		assertEquals(BigDecimal.valueOf(0.0), property.getNumberValue( ) );
 		assertEquals( DesignChoiceConstants.FONT_SIZE_LARGER, property
 				.getStringValue( ) );
 
@@ -113,7 +113,7 @@ public class FactoryPropertyHandleTest extends BaseTestCase
 		assertEquals( null, property.getColorValue( ) );
 		assertEquals( 0, property.getIntValue( ) );
 		assertEquals( 0, property.getFloatValue( ), 1 );
-		assertEquals( new BigDecimal( 0.0 ), property.getNumberValue( ) );
+		assertEquals(BigDecimal.valueOf(0.0), property.getNumberValue( ) );
 		assertEquals( DesignChoiceConstants.ORPHANS_INHERIT, property
 				.getStringValue( ) );
 

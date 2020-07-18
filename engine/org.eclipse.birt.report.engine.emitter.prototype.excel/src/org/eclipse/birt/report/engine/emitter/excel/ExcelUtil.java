@@ -50,17 +50,14 @@ public class ExcelUtil
 	private static final double SECONDS_PER_DAY = 86400.0;
 	private static final double SECONDS_PER_MINUTE = 60.0;
 	private static final double SECONDS_PER_HOUR = 3600.0;
-	protected static final BigDecimal MAX_DOUBLE = new BigDecimal(
-			Double.MAX_VALUE );
+	protected static final BigDecimal MAX_DOUBLE = BigDecimal.valueOf(java.lang.Double.MAX_VALUE);
 	protected static final BigDecimal MIN_DOUBLE = MAX_DOUBLE.negate( )
 			.subtract( BigDecimal.ONE );
 	protected static final BigDecimal MIN_POSITIVE_DECIMAL_NUMBER = new BigDecimal(
 			"0.000000000000001" );
-	protected static final BigDecimal MAX_POSITIVE_DECIMAL_NUMBER = new BigDecimal(
-			10e15 ).subtract( MIN_POSITIVE_DECIMAL_NUMBER );
+	protected static final BigDecimal MAX_POSITIVE_DECIMAL_NUMBER = BigDecimal.valueOf(1.0E16).subtract( MIN_POSITIVE_DECIMAL_NUMBER );
 
-	protected static final BigDecimal MIN_NEGATIVE_DECIMAL_NUMBER = new BigDecimal(
-			-10e14 ).add( new BigDecimal( "0.000000000000001" ) );
+	protected static final BigDecimal MIN_NEGATIVE_DECIMAL_NUMBER = BigDecimal.valueOf(-1.0E15).add( new BigDecimal( "0.000000000000001" ) );
 	protected static final BigDecimal MAX_NEGATIVE_DECIMAL_NUMBER = MIN_POSITIVE_DECIMAL_NUMBER
 			.negate( );
 	protected static final long MILLISECS_PER_DAY = 24 * 3600 * 1000;
@@ -717,8 +714,13 @@ public class ExcelUtil
 				exp.lastIndexOf( "]" ) + 1 );
 	}
 
-	private static final String reg1 = "Total." + "(count|ave|sum|max|min)"
-			+ "\\(", reg2 = "\\)", reg3 = "\\[", reg4 = "\\]";
+	private static final java.lang.String reg1 = "Total." + ("(count|ave|sum|max|min)" + "\\(");
+
+	private static final java.lang.String reg2 = "\\)";
+
+	private static final java.lang.String reg3 = "\\[";
+
+	private static final java.lang.String reg4 = "\\]";
 
 	public static boolean isValidExp( String exp, String[] columnNames )
 	{

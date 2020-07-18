@@ -131,7 +131,7 @@ public class TotalTest {
     /*
      * @see TestCase#setUp()
      */
-/*
+	/*
      * @see TestCase#tearDown()
      */
 @Test
@@ -449,10 +449,10 @@ public class TotalTest {
     {
         IAggrFunction ag = buildInAggrFactory.getAggregation("sum");
         Accumulator ac = ag.newAccumulator();
-        assertEquals(IBuildInAggregation.TOTAL_SUM_FUNC, ag.getName());
-        assertEquals(IAggrFunction.SUMMARY_AGGR, ag.getType());
-        assertEquals(1, ag.getParameterDefn().length);
-        assertTrue(!ag.getParameterDefn()[0].isOptional());
+        org.junit.Assert.assertEquals(IBuildInAggregation.TOTAL_SUM_FUNC, ag.getName());
+        org.junit.Assert.assertEquals(IAggrFunction.SUMMARY_AGGR, ag.getType());
+        org.junit.Assert.assertEquals(1, ag.getParameterDefn().length);
+        org.junit.Assert.assertTrue(!ag.getParameterDefn()[0].isOptional());
 
         // null-value handling
         {
@@ -472,7 +472,7 @@ public class TotalTest {
             ac.onRow(new Double[]{new Double(doubleArray1[i])});
         }
         ac.finish();
-        assertEquals(new Double(82.0), ac.getValue());
+        org.junit.Assert.assertEquals(new Double(82.0), ac.getValue());
 
         ac.start();
         for(int i=0; i<doubleArray2.length; i++)
@@ -480,7 +480,7 @@ public class TotalTest {
             ac.onRow(new Double[]{new Double(doubleArray2[i])});
         }
         ac.finish();
-        assertEquals(new Double(69.0), ac.getValue());
+        org.junit.Assert.assertEquals(new Double(69.0), ac.getValue());
 
         ac.start();
         for(int i=0; i<str1.length; i++)
@@ -488,11 +488,11 @@ public class TotalTest {
             ac.onRow(new Object[]{str1[i]});
         }
         ac.finish();
-        assertEquals(69D, ac.getValue());
+        org.junit.Assert.assertEquals(69D, ac.getValue());
 
         ac.start();
         ac.finish();
-        assertEquals(null, ac.getValue());
+        org.junit.Assert.assertEquals(null, ac.getValue());
 
         ac.start();
         try
@@ -533,26 +533,25 @@ public class TotalTest {
             } );
         }
         ac.finish( );
-        assertEquals( 82D, ac.getValue( ) );
+        org.junit.Assert.assertEquals( 82D, ac.getValue( ) );
 
         ac.start( );
         ac.onRow( new Object[]{
                 new BigDecimal("1.2")
             } );
         ac.finish( );
-        assertEquals( 1.2D, ac.getValue( ) );
+        org.junit.Assert.assertEquals( 1.2D, ac.getValue( ) );
 
         // test Total.sum() for heterogeneous Number array data
         {
-            Number numberArray[] = new Number[] {
+            Number numberArray = new java.lang.Number[] {
                 BigDecimal.ZERO,
                 BigDecimal.ONE,
                 BigDecimal.TEN,
                 Double.valueOf("0.1"),
+                new BigDecimal("0.1"), BigDecimal.valueOf(0.1),
                 new BigDecimal("0.1"),
-                new BigDecimal(0.1D),
-                new BigDecimal("0.1"),
-                new Double(0.1D),
+                new Double(0.1D)
             };
             ac.start( );
             for ( int i = 0; i < numberArray.length; i++ )
@@ -563,8 +562,8 @@ public class TotalTest {
             }
             ac.finish( );
             Number x = ( Number )ac.getValue( );
-            assertTrue( new BigDecimal( "11.49" ).compareTo( new BigDecimal( x.toString( ) ) ) == -1 );
-            assertTrue( new BigDecimal( "11.51" ).compareTo( new BigDecimal( x.toString( ) ) ) == 1 );
+            org.junit.Assert.assertTrue( new BigDecimal( "11.49" ).compareTo( new BigDecimal( x.toString( ) ) ) == -1 );
+            org.junit.Assert.assertTrue( new BigDecimal( "11.51" ).compareTo( new BigDecimal( x.toString( ) ) ) == 1 );
         }
 
         // test Total.sum() for data with NaN

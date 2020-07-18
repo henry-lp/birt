@@ -18,7 +18,6 @@ import java.util.Date;
 import java.util.Locale;
 
 import junit.framework.TestCase;
-;
 /**
  * 
  */

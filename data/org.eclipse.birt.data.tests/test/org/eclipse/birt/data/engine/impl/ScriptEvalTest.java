@@ -146,7 +146,7 @@ public class ScriptEvalTest {
 		handleErrorTest( "x.y", false);
 		handleErrorTest( "x.y", false);
 		handleErrorTest( "x.y", false);
-	};
+	}
 	
 	private void handleErrorTest( String errScript, boolean compileError ) throws Exception
 	{
@@ -584,22 +584,19 @@ public class ScriptEvalTest {
 		result = ScriptEvalUtil.evalConditionalExpr( 
 				new Integer( 10 ),
 				IConditionalExpression.OP_BETWEEN, 
-				new Double( 9.9 ),
-				new BigDecimal( 19.9 ) );
+				new Double( 9.9 ), BigDecimal.valueOf(19.9) );
 		assertResult( result, true );
 
 		result = ScriptEvalUtil.evalConditionalExpr( 
 				new Integer( 10 ),
 				IConditionalExpression.OP_BETWEEN, 
-				new Double( 10.9 ),
-				new BigDecimal( 19.9 ) );
+				new Double( 10.9 ), BigDecimal.valueOf(19.9) );
 		assertResult( result, false );
 
 		result = ScriptEvalUtil.evalConditionalExpr( 
 				new Integer( 10 ),
 				IConditionalExpression.OP_BETWEEN, 
-				new Double( 20 ),
-				new BigDecimal( 9.9 ) );
+				new Double( 20 ), BigDecimal.valueOf(9.9) );
 		assertResult( result, false );
 
 		//Nov 1, 2001 between "Oct 20, 2001 12:00:00 AM" 
@@ -627,11 +624,11 @@ public class ScriptEvalTest {
 				new Double( 20.0 ) );
 		assertResult( result, true );			
 		
-//		result = ScriptEvalUtil.evalConditionalExpr( calendar.getTime( ),
-//				IConditionalExpression.OP_BETWEEN,
-//				ExprTextAndValue.newInstance( "\"01/01/03\"", "01/01/03" ),
-//				ExprTextAndValue.newInstance( "01/01/04", new Double( 0.25 ) ) );
-//		assertResult( result, false );
+		//		result = ScriptEvalUtil.evalConditionalExpr( calendar.getTime( ),
+		//				IConditionalExpression.OP_BETWEEN,
+		//				ExprTextAndValue.newInstance( "\"01/01/03\"", "01/01/03" ),
+		//				ExprTextAndValue.newInstance( "01/01/04", new Double( 0.25 ) ) );
+		//		assertResult( result, false );
 		
 		result = ScriptEvalUtil.evalConditionalExpr( new Boolean( true ),
 				IConditionalExpression.OP_BETWEEN,
@@ -658,7 +655,7 @@ public class ScriptEvalTest {
 		assertResult(result,true);
 		
 		result = ScriptEvalUtil.evalConditionalExpr( new Integer(10),
-				IConditionalExpression.OP_GT, new BigDecimal(19.9), null );
+				IConditionalExpression.OP_GT, BigDecimal.valueOf(19.9), null );
 		assertResult(result,false);
 
 		result = ScriptEvalUtil.evalConditionalExpr( new BigDecimal(10),
@@ -718,7 +715,7 @@ public class ScriptEvalTest {
 		assertResult(result,false);
 		
 		result = ScriptEvalUtil.evalConditionalExpr( new Integer(10),
-				IConditionalExpression.OP_LT, new BigDecimal(19.9), null );
+				IConditionalExpression.OP_LT, BigDecimal.valueOf(19.9), null );
 		assertResult(result,true);
 
 		result = ScriptEvalUtil.evalConditionalExpr( new BigDecimal(10),

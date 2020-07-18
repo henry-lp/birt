@@ -58,7 +58,7 @@ public class TestData
     
     public static final BigDecimal createBigDecimalData()
     {
-    	return new BigDecimal( BIG_DECIMAL_DATA );
+    	return BigDecimal.valueOf(org.eclipse.birt.data.engine.odaconsumer.testdriver.TestData.BIG_DECIMAL_DATA);
     }
         
     public static final String createClobDataString()
