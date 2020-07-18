@@ -76,6 +76,9 @@ public class FilteredSheet implements Sheet {
 		}
 
 		public Row next() {
+			if (!hasNext()) {
+				throw new java.util.NoSuchElementException();
+			}
 			return cur;
 		}
 
