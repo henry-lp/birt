@@ -41,7 +41,7 @@ import com.ibm.icu.util.ULocale;
 
 public class CubeQueryDefinitionUtil
 {
-	private CubeQueryDefinitionUtil( ){};
+	private CubeQueryDefinitionUtil( ){}
 	
 	/**
 	 * Returns hint info about how newQuery can be executed based on the execution
@@ -321,7 +321,7 @@ public class CubeQueryDefinitionUtil
 	{
 		if ( s1 == null )
 		{
-			return s1 == s2;
+			return s1.equals(s2);
 		}
 		else
 		{

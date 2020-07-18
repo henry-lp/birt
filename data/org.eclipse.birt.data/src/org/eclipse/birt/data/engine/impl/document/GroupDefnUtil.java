@@ -166,7 +166,7 @@ public class GroupDefnUtil
 	 */
 	private static boolean isEqualStr( String str1, String str2 )
 	{
-		if ( str1 == str2 )
+		if (str1.equals(str2) )
 			return true;
 
 		if ( str1 == null || str2 == null )

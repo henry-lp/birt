@@ -246,7 +246,7 @@ public class SQLQueryUtility
     {
         if( sql1 == null || sql2 == null )
         {
-            return( sql1 == sql2 );
+            return sql1.equals(sql2);
         }
         // compareSQL does not handle null arguments
         return ( StatementHelper.compareSQL( sql1, sql2 ) == 0 );
@@ -623,30 +623,30 @@ public class SQLQueryUtility
             paramAttributes.setNullability( ElementNullability.NOT_NULLABLE_LITERAL );
     }
    
-//    private static ParameterDefinition findMatchingParameter( DataSetParameters existingParamsDesign, ParameterDefinition paramDefn )
-//    {
-//        if( existingParamsDesign == null )
-//            return null;
-//        
-//        DataElementAttributes paramAttributes = paramDefn.getAttributes();
-//        Iterator iter = existingParamsDesign.getParameterDefinitions().iterator();
-//        while( iter.hasNext() )
-//        {
-//            ParameterDefinition origParamDefn = (ParameterDefinition) iter.next( );
-//            DataElementAttributes origParamAttributes = origParamDefn.getAttributes();
-//            
-//            // match by name and native data type
-//            if( origParamAttributes.getName() == null || paramAttributes.getName() == null )
-//                continue;
-//            if( ! origParamAttributes.getName().equals( paramAttributes.getName() ))
-//                continue;
-//            if( origParamAttributes.getNativeDataTypeCode() != paramAttributes.getNativeDataTypeCode() )
-//                continue;
-//           
-//            return origParamDefn;
-//        }
-//        return null;    // no matching parameter definition
-//    }
+	//    private static ParameterDefinition findMatchingParameter( DataSetParameters existingParamsDesign, ParameterDefinition paramDefn )
+	//    {
+	//        if( existingParamsDesign == null )
+	//            return null;
+	//        
+	//        DataElementAttributes paramAttributes = paramDefn.getAttributes();
+	//        Iterator iter = existingParamsDesign.getParameterDefinitions().iterator();
+	//        while( iter.hasNext() )
+	//        {
+	//            ParameterDefinition origParamDefn = (ParameterDefinition) iter.next( );
+	//            DataElementAttributes origParamAttributes = origParamDefn.getAttributes();
+	//            
+	//            // match by name and native data type
+	//            if( origParamAttributes.getName() == null || paramAttributes.getName() == null )
+	//                continue;
+	//            if( ! origParamAttributes.getName().equals( paramAttributes.getName() ))
+	//                continue;
+	//            if( origParamAttributes.getNativeDataTypeCode() != paramAttributes.getNativeDataTypeCode() )
+	//                continue;
+	//           
+	//            return origParamDefn;
+	//        }
+	//        return null;    // no matching parameter definition
+	//    }
 
     /**
      * Attempts to close given ODA connection.

@@ -133,7 +133,7 @@ public class BooleanCalculator implements ICalculator
 	
 	private Number convertToNumber( Boolean a )
 	{
-		return a == Boolean.TRUE ? BigDecimal.ONE : BigDecimal.ZERO;
+		return a.equals(java.lang.Boolean.TRUE) ? BigDecimal.ONE : BigDecimal.ZERO;
 	}
 
 }
