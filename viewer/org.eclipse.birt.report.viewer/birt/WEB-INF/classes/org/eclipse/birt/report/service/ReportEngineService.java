@@ -213,7 +213,7 @@ public class ReportEngineService
 		// Set appcontext classloader to Engine config
 		ClassLoader appClassLoader = BirtUtility.getAppClassLoader( );
 		if ( appClassLoader == null )
-			appClassLoader = ReportEngineService.class.getClassLoader( );
+			appClassLoader = java.lang.Thread.currentThread().getContextClassLoader();
 		appContext.put( EngineConstants.APPCONTEXT_CLASSLOADER_KEY,
 				appClassLoader );
 
