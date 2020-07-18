@@ -48,7 +48,7 @@ public class OdsUtil extends OdfUtil
 	private static final double SECONDS_PER_MINUTE = 60.0;
 	private static final double SECONDS_PER_HOUR = 3600.0;
 	protected static final Logger log = Logger.getLogger( OdsUtil.class.getName( ) );
-	protected static final BigDecimal MAX_DOUBLE = new BigDecimal( Double.MAX_VALUE );
+	protected static final BigDecimal MAX_DOUBLE = BigDecimal.valueOf(java.lang.Double.MAX_VALUE);
 	protected static final BigDecimal MIN_DOUBLE = MAX_DOUBLE.negate( ).subtract(
 			BigDecimal.ONE );
 	protected static final BigDecimal MIN_POSITIVE_DECIMAL_NUMBER = new BigDecimal(
@@ -639,8 +639,13 @@ public class OdsUtil extends OdfUtil
 		throw new RuntimeException( "Cannot parse the expression" + expression );
 	}
 
-	private static final String reg1 = "Total." + "(count|ave|sum|max|min)"
-			+ "\\(", reg2 = "\\)", reg3 = "\\[", reg4 = "\\]";
+	private static final java.lang.String reg1 = "Total." + ("(count|ave|sum|max|min)" + "\\(");
+
+	private static final java.lang.String reg2 = "\\)";
+
+	private static final java.lang.String reg3 = "\\[";
+
+	private static final java.lang.String reg4 = "\\]";
 
 	public static boolean isValidExp( String exp, String[] columnNames )
 	{
